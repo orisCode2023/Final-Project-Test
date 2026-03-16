@@ -1,11 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import connectDb from "./config/dbConnection.js";
 
+import connectDb from "./config/dbConnection.js";
 import launchersRouter from "./routes/launchers.route.js";
 import launcherRouter from "./routes/launcher.route.js";
 import postLaunchersRouter from "./routes/newLaunchers.route.js";
+import deleteLauncherRouter from "./routes/removeLauncher.router.js";
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(cors());
 app.use('/api/launchers', launchersRouter);
 app.use('/api/launchers', launcherRouter);
 app.use('/api/launchers', postLaunchersRouter);
+app.use('/api/launchers', deleteLauncherRouter);
 
 app.listen(PORT, () => {
   connectDb();
