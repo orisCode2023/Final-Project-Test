@@ -2,6 +2,10 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
+import launchersRouter from "./routes/launchers.route.js";
+import launcherRouter from "./routes/launcher.route.js";
+import postLaunchersRouter from "./routes/newLaunchers.route.js";
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,6 +18,9 @@ app.use(
     credentials: true,
   }),
 );
+app.use('/api/launchers', launchersRouter);
+app.use('/api/launchers', launcherRouter);
+app.use('/api/launchers', postLaunchersRouter);
 
 app.listen(PORT, () => {
   connectDb();
