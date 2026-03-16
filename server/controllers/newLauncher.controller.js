@@ -2,9 +2,9 @@ import Launcher from "../models/launcher.model.js";
 
 async function newLauncherController(req, res){
     try {
-        const {id, name, rocketType, latitude, longitude, city} = req.body;
+        const {name, rocketType, latitude, longitude, city} = req.body;
 
-        if (!name || !rocketType || !latitude || !longitude || !city || !id){
+        if (!name || !rocketType || !latitude || !longitude || !city){
             return res.status(400).json({message:'one of the details is missing '})            
         }
         const isExist = await Launcher.findOne({id: id});
@@ -14,7 +14,6 @@ async function newLauncherController(req, res){
         }
         const newLauncher = await Launcher.create({
             name,
-            id,
             rocketType,
             latitude, 
             longitude,

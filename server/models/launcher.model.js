@@ -5,10 +5,6 @@ const launcherSchema = new mongoose.Schema({
         type: String,
         require: true, 
     },
-    id: {
-        type: String,
-        require: true, 
-    },
     rocketType: {
         type: String,
         enum: ['Shahab3', 'Fetah110', 'Radwan', 'Kheibar'],

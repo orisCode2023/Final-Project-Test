@@ -9,13 +9,14 @@ function LauncherDetails() {
     setGetId(e.target.value)
   }
   async function handleSubmit(e) {
-    e.prevenDefault();
+    e.preventDefault();
     await apiRequestresGet(`/api/launchers/${getId}`, "GET");
     alert("Get launcher by id successfully");
   }
 
   return (
     <div>
+      <h2>Get Launcher</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="">Get launcher by id</label>
         <input
@@ -27,7 +28,7 @@ function LauncherDetails() {
         />
         <button type="submit">Search</button>
       </form>
-      {/* {getId && <Table dataTable={getId} />} */}
+      {getId && <Table dataTable={getId} />}
     </div>
   );
 }

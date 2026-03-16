@@ -9,13 +9,14 @@ function DeleteLauncher() {
       setGetId(e.target.value)
     }
     async function handleSubmit(e) {
-      e.prevenDefault();
-      await apiRequestresGet(`/api/launchers/:id${getId}`, "GET");
+      e.preventDefault();
+      await apiRequestresGet(`/api/launchers/${getId}`, "GET");
       alert("Delete launcher by id successfully");
     }
   
   return (
     <div>
+      <h2>Delete Launcher</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="">Delete launcher by id</label>
         <input
@@ -27,7 +28,7 @@ function DeleteLauncher() {
         />
         <button type="submit">Search</button>
       </form>
-      {/* {getId && <Table dataTable={getId} />} */}
+      {getId && <Table dataTable={getId} />}
     </div>
   );
 }

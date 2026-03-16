@@ -17,9 +17,10 @@ function AddLauncher() {
       ...prevNewLauncher,
       [name]: value,
     }));
+    console.log(newLauncher);
   }
   async function handleSubmit(e) {
-    e.prevenDefault();
+    e.preventDefault();
     console.log(newLauncher);
     await apiRequestresPost("/api/launchers", "POST", newLauncher);
     alert("The launcher created successfully");
@@ -44,11 +45,15 @@ function AddLauncher() {
           onChange={handleChange}
         />
         <label>Choose a Rocket Type:</label>
-        <select name="rocketType">
-          <option value={newLauncher.rocketType}>Shahab3</option>
-          <option value={newLauncher.rocketType}>Fetah110</option>
-          <option value={newLauncher.rocketType}>Radwan</option>
-          <option value={newLauncher.rocketType}>Kheibar</option>
+        <select
+          name="rocketType"
+          value={newLauncher.rocketType}
+          onChange={handleChange}
+        >
+          <option value={"Shahab3"}>Shahab3</option>
+          <option value={"Fetah110"}>Fetah110</option>
+          <option value={"Radwan"}>Radwan</option>
+          <option value={"Kheibar"}>Kheibar</option>
         </select>
         <label>Latitude: </label>
         <input
