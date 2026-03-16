@@ -13,12 +13,8 @@ const PORT = process.env.PORT || 3000;
 
 dotenv.config();
 app.use(express.json());
-app.use(
-  cors({
-    origin: "url of the react",
-    credentials: true,
-  }),
-);
+app.use(cors());
+
 app.use('/api/launchers', launchersRouter);
 app.use('/api/launchers', launcherRouter);
 app.use('/api/launchers', postLaunchersRouter);
