@@ -1,20 +1,34 @@
 import { useState } from "react";
 import { apiRequestresGet } from "../api/apiRequest";
 import Table from "../components/Table";
+import launchersStore from "../store/useLaucherStore";
+import filetring from "../utils/filterData";
 
 function SearchLauncher() {
+  let data;
+  const {launchers} = launchersStore();
+
   const [getSearchInput, setGetSearchInput] = useState({
     city: "",
     rocketType: "",
   });
 
   function handleChange(e) {
-    setGetId(e.target.value);
+    const { name, value } = e.target;
+    setGetSearchInput((prevGetSearchInput) => ({
+      ...prevGetSearchInput,
+      [name]: value,
+    }));
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    await apiRequestresGet(`/api/launchers/${getSearchInput}`, "GET");
-    alert("Get launcher by id successfully");
+    console.log(launchers)
+    console.log(getSearchInput)
+    data = filetring(launchers, getSearchInput)
+    console.log(data)
+    // alert("Get launcher by id successfully");
+    return data && <Table dataTable={data} />
+
   }
 
   return (
@@ -41,7 +55,6 @@ function SearchLauncher() {
         />
         <button type="submit">Search</button>
       </form>
-      {/* {getSearchInput && <Table dataTable={getSearchInput} />} */}
     </div>
   );
 }

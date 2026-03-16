@@ -7,11 +7,6 @@ async function newLauncherController(req, res){
         if (!name || !rocketType || !latitude || !longitude || !city){
             return res.status(400).json({message:'one of the details is missing '})            
         }
-        const isExist = await Launcher.findOne({id: id});
-        console.log(isExist)
-        if (isExist) {
-            return res.status(400).json({message:'launcher with this id is already exist'})            
-        }
         const newLauncher = await Launcher.create({
             name,
             rocketType,

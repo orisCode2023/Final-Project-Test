@@ -31,7 +31,7 @@ export async function apiRequestresGet(path, method) {
       throw new Error("loading data faild");
     }
     const data = await response.json();
-    return data.data;
+    return data;
   } catch (error) {
     console.log("error loading data", error.message);
     throw error;

@@ -1,9 +1,20 @@
-import { create } from 'zustand';
-import { apiRequestresGet } from '../api/apiRequest';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { apiRequestresGet, apiRequestresPost } from "../api/apiRequest";
 
-const useLaunchers = create((set) => ({
-    launchers: [],
-    getLaunchers: () => set(async () => ({launchers: await apiRequestresGet("/api/launchers", "GET")}))
-}))
-
-export default useLaunchers;
+const launchersStore = create()(
+  persist(
+    (set) => ({
+      launchers: [],
+      getLaunchers: async () => {
+        const {data} = await apiRequestresGet("/api/launchers", "GET");
+        set({ launchers: data });
+      },
+      addLauncher: async (data) => {
+        await apiRequestresPost("/api/launchers", 'POST', data);
+      }
+    }),
+    { name: "launchers-storage" },
+  ),
+)
+export default launchersStore;

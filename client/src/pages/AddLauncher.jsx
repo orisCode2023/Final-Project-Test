@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { apiRequestresPost } from "../api/apiRequest";
+import launchersStore from "../store/useLaucherStore";
 
 function AddLauncher() {
+  const { addLauncher } = launchersStore();
   const [newLauncher, setNewLauncher] = useState({
     name: "",
-    id: "",
     rocketType: "",
     latitude: 0,
     longitude: 0,
@@ -17,12 +18,12 @@ function AddLauncher() {
       ...prevNewLauncher,
       [name]: value,
     }));
-    console.log(newLauncher);
   }
   async function handleSubmit(e) {
     e.preventDefault();
     console.log(newLauncher);
-    await apiRequestresPost("/api/launchers", "POST", newLauncher);
+    await addLauncher(newLauncher)
+    // await apiRequestresPost("/api/launchers", "POST", newLauncher);
     alert("The launcher created successfully");
   }
 
@@ -35,13 +36,6 @@ function AddLauncher() {
           type="text"
           name="name"
           value={newLauncher.name}
-          onChange={handleChange}
-        />
-        <label>Id: </label>
-        <input
-          type="text"
-          name="id"
-          value={newLauncher.id}
           onChange={handleChange}
         />
         <label>Choose a Rocket Type:</label>
