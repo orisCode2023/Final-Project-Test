@@ -1,0 +1,74 @@
+body {
+    background-color:beige;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+table, th, td {
+  border: 1px solid;
+  padding: 10px;
+  text-align: center;
+}
+table {
+    border: none;
+}
+th {
+    background-color: rgb(141, 141, 241);
+}
+td {
+    background-color:rgb(144, 248, 40);
+}
+tr:hover {
+    background-color: white ;
+}
+a {
+    text-decoration: none;
+    color: blue;
+    margin: 10px;
+}
+h2 {
+    text-align: center;
+}
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 20px;
+}
+
+label {display: block;}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+button {
+    text-align: center;
+    background-color: rgb(113, 113, 238);
+}

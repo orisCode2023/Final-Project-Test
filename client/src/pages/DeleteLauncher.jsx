@@ -1,23 +1,23 @@
 import { useState } from "react";
-import { apiRequestresGet } from "../api/apiRequest";
 import Table from "../components/Table";
+import { apiRequestresGet } from "../api/apiRequest";
 
-function LauncherDetails() {
+function DeleteLauncher() {
   const [getId, setGetId] = useState('');
-
-  function handleChange(e) {  
-    setGetId(e.target.value)
-  }
-  async function handleSubmit(e) {
-    e.prevenDefault();
-    await apiRequestresGet(`/api/launchers/${getId}`, "GET");
-    alert("Get launcher by id successfully");
-  }
-
+  
+    function handleChange(e) {  
+      setGetId(e.target.value)
+    }
+    async function handleSubmit(e) {
+      e.prevenDefault();
+      await apiRequestresGet(`/api/launchers/:id${getId}`, "GET");
+      alert("Delete launcher by id successfully");
+    }
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="">Get launcher by id</label>
+        <label htmlFor="">Delete launcher by id</label>
         <input
           type="text"
           name="id"
@@ -32,4 +32,4 @@ function LauncherDetails() {
   );
 }
 
-export default LauncherDetails;
+export default DeleteLauncher;
