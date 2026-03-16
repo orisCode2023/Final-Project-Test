@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import connectDb from "./config/dbConnection.js";
 
 import launchersRouter from "./routes/launchers.route.js";
 import launcherRouter from "./routes/launcher.route.js";

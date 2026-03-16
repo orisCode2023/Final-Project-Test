@@ -1,9 +1,12 @@
 import mongoose from "mongoose";
 
-const schema = new mongoose.Schema({
+const launcherSchema = new mongoose.Schema({
     name: {
         type: String,
-        enum: ['jone', 'doe'],
+        require: true, 
+    },
+    id: {
+        type: String,
         require: true, 
     },
     rocketType: {
@@ -26,6 +29,6 @@ const schema = new mongoose.Schema({
 }, {timestamps: true});
 
 
-const Schema = mongoose.model("Schema", schema);
+const Launcher = mongoose.model("Launcher", launcherSchema);
 
-export default Schema
+export default Launcher
