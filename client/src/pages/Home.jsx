@@ -17,8 +17,7 @@ function Home() {
       <h2>Launcher Dashboard</h2>
       <Link to={"/newLauncher"}>New Launcher</Link>
       <Link to={"/getById"}>Get Launcher Deatails by Id</Link>
-      <Link to={"/"}>Get Launcher Details by City</Link>
-      <Link to={"/"}>Get Launcher Details by Rocket Type</Link>
+      <Link to={"/searchLauncher"}>Get Launcher Details by City / Rocket Type</Link>
       <Link to={"/deleteLauncher"}>Delete Launcher</Link>
       {launcherData && <Table dataTable={launcherData} />}
     </div>

@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import AddLauncher from './pages/AddLauncher';
 import LauncherDetails from './pages/LauncherDetails';
 import DeleteLauncher from './pages/DeleteLauncher';
+import SearchLauncher from './pages/SearchLauncher';
 import Navbar from './components/Navbar';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path='/newLauncher' element={<AddLauncher />}/>
       <Route path='/deleteLauncher' element={<DeleteLauncher />}/>
       <Route path='/getById' element={<LauncherDetails />}/>
+      <Route path='/searchLauncher' element={<SearchLauncher/>}/>
     </Routes>
     </>
   )
