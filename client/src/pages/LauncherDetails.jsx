@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { apiRequestresGet } from "../api/apiRequest";
-import Table from "../components/Table";
+import Launcher from "../components/Launcher";
 
 function LauncherDetails() {
+  
   const [getId, setGetId] = useState('');
+  const [getData, setGetData] = useState('');
 
   function handleChange(e) {  
     setGetId(e.target.value)
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    await apiRequestresGet(`/api/launchers/${getId}`, "GET");
+    setGetData(await apiRequestresGet(`/api/launchers/${getId}`, "GET"))
     alert("Get launcher by id successfully");
   }
 
@@ -28,7 +30,8 @@ function LauncherDetails() {
         />
         <button type="submit">Search</button>
       </form>
-      {getId && <Table dataTable={getId} />}
+      {getData && <Launcher launcher={getData.data} />}
+     
     </div>
   );
 }

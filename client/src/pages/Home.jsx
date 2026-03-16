@@ -5,12 +5,10 @@ import { Link } from "react-router";
 import useLaunchers from "../store/useLaucherStore";
 
 function Home() {
-  // const [launcherData, setLauncherData] = useState();
   const {launchers, getLaunchers} = useLaunchers();
 
   useEffect(() => {
     async function getData() {
-      // setLauncherData(await apiRequestresGet("/api/launchers", "GET"));
       await getLaunchers();
     }
     getData();

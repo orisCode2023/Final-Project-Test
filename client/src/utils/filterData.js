@@ -1,9 +1,5 @@
 function filetring(array, filterData) {
-  return array.filter((value, index) => {
-    if (filterData[index] !== "") {
-      value.filterData === filterData[index];
-    }
-  });
+  return array.filter(launcher => launcher.filterData === filterData);
 }
 export default filetring;
 

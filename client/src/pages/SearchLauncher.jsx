@@ -1,39 +1,32 @@
 import { useState } from "react";
-import { apiRequestresGet } from "../api/apiRequest";
-import Table from "../components/Table";
 import launchersStore from "../store/useLaucherStore";
 import filetring from "../utils/filterData";
+import Launcher from "../components/Launcher";
 
 function SearchLauncher() {
   let data;
   const {launchers} = launchersStore();
-
-  const [getSearchInput, setGetSearchInput] = useState({
-    city: "",
-    rocketType: "",
-  });
+  const [getSearchInputCity, setGetSearchInputCity] = useState('');
+  const [getSearchInput, setGetSearchInput] = useState('');
+  const [getData, setGetData] = useState('');
 
   function handleChange(e) {
-    const { name, value } = e.target;
-    setGetSearchInput((prevGetSearchInput) => ({
-      ...prevGetSearchInput,
-      [name]: value,
-    }));
+    setGetSearchInputCity(e.target.value)
+    // const { name, value } = e.target;
+    // setGetSearchInput((prevGetSearchInput) => ({
+    //   ...prevGetSearchInput,
+    //   [name]: value,
+    // }));
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(launchers)
-    console.log(getSearchInput)
-    data = filetring(launchers, getSearchInput)
-    console.log(data)
-    // alert("Get launcher by id successfully");
-    return data && <Table dataTable={data} />
-
+    setGetData(filetring(launchers, getSearchInputCity))
+    alert("Get launcher by id successfully");
   }
 
   return (
     <div>
-      <h2>Get Launchers by Rocket or city</h2>
+      <h2>Get Launchers by City</h2>
       <form onSubmit={handleSubmit}>
         <label>Choose a Rocket Type:</label>
         <select
@@ -50,11 +43,12 @@ function SearchLauncher() {
         <input
           type="text"
           name="city"
-          value={getSearchInput.city}
+          value={getSearchInputCity}
           onChange={handleChange}
         />
         <button type="submit">Search</button>
       </form>
+      {getData && <Launcher data={getData} />}
     </div>
   );
 }

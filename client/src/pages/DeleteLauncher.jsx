@@ -1,19 +1,20 @@
 import { useState } from "react";
-import Table from "../components/Table";
 import { apiRequestresGet } from "../api/apiRequest";
+import Launcher from "../components/Launcher";
 
 function DeleteLauncher() {
-  const [getId, setGetId] = useState('');
-  
-    function handleChange(e) {  
-      setGetId(e.target.value)
-    }
-    async function handleSubmit(e) {
-      e.preventDefault();
-      await apiRequestresGet(`/api/launchers/${getId}`, "GET");
-      alert("Delete launcher by id successfully");
-    }
-  
+  const [getId, setGetId] = useState("");
+  const [getData, setGetData] = useState("");
+
+  function handleChange(e) {
+    setGetId(e.target.value);
+  }
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setGetData(await apiRequestresGet(`/api/launchers/${getId}`, "GET"))
+    alert("Delete launcher by id successfully");
+  }
+
   return (
     <div>
       <h2>Delete Launcher</h2>
@@ -28,7 +29,7 @@ function DeleteLauncher() {
         />
         <button type="submit">Search</button>
       </form>
-      {getId && <Table dataTable={getId} />}
+      {getData && <Launcher dataTable={getData} />}
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { apiRequestresPost } from "../api/apiRequest";
 import launchersStore from "../store/useLaucherStore";
 
 function AddLauncher() {
@@ -23,7 +22,6 @@ function AddLauncher() {
     e.preventDefault();
     console.log(newLauncher);
     await addLauncher(newLauncher)
-    // await apiRequestresPost("/api/launchers", "POST", newLauncher);
     alert("The launcher created successfully");
   }
 
