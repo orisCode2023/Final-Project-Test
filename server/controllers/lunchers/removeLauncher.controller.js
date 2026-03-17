@@ -15,7 +15,7 @@ async function removeLauncherController(req, res){
         return res.status(200).json({message:'remove launcher succrssfully', data: launcher})
 
     } catch (error) {
-        console.log('Error in get launcher controller', error.message);
+        console.log('Error in remove launcher controller', error.message);
         return res.status(500).json({message: 'Internal server error '});
     }
 }

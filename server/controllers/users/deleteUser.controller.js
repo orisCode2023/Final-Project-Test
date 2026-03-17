@@ -15,9 +15,9 @@ async function deleteUserController(req, res) {
     await User.deleteOne( user );
     return res
       .status(200)
-      .json({ message: "delete launcher successfully", data: user });
+      .json({ message: "delete user successfully", data: user });
   } catch (error) {
-    console.log("Error in delete launcher controller", error.message);
+    console.log("Error in delete user controller", error.message);
     return res.status(500).json({ message: "Internal server error " });
   }
 }

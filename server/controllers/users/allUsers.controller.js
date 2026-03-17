@@ -8,7 +8,7 @@ async function allUsersController(req, res) {
     }
     return res
       .status(200)
-      .json({ message: "get users succrssfully", data: users });
+      .json({ message: "get users successfully", data: users });
   } catch (error) {
     console.log("Error in get users controller", error.message);
     return res.status(500).json({ message: "Internal server error " });

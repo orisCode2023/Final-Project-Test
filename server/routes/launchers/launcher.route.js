@@ -1,9 +1,10 @@
 import express from 'express';
-import removeLauncherController from '../../controllers/lunchers/removeLauncher.controller.js';
+import protectAirForce from '../../middleware/protectRouteAIrforce.middleware.js';
+import launcherController from '../../controllers/lunchers/launcher.controller.js';
 
 const launcherRouter = express.Router();
 
-launcherRouter.get('/:id', removeLauncherController);
+launcherRouter.get('/:id', protectAirForce, launcherController);
 
 
 export default launcherRouter;
