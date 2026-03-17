@@ -20,7 +20,6 @@ function AddLauncher() {
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(newLauncher);
     await addLauncher(newLauncher)
     alert("The launcher created successfully");
   }

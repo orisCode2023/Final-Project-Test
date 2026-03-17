@@ -2,7 +2,7 @@ function Launcher({launcher}) {
   return (
     <div>
         <h2>Launcher</h2>
-        <p> {launcher._id} </p>
+        <p> {launcher.id} </p>
         <p> {launcher.name} </p>
         <p> {launcher.id} </p>
         <p> {launcher.rocketType} </p>

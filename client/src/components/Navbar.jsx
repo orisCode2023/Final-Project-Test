@@ -20,9 +20,10 @@ function Navbar() {
       <h1>Launchers App</h1>
       <Link to={"/home"}>Home</Link>
       <Link to={"/register"}>Register</Link>
+      <Link to={"/"}>Login</Link>
+      <Link to={"/dashboard"}>Admin Dashboard</Link>
       {user && <button onClick={handleClickInfo} >Info</button> }
       {user && <button onClick={handleClickLogout} >Logout</button> }
-      {user &&  <Link to={"/"}>Login</Link>}
 
     </div>
   );

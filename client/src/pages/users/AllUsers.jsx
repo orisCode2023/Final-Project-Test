@@ -1,4 +1,8 @@
+import { useEffect } from "react";
 import Table from "../../components/Table";
+import useAuthStore from "../../store/useAuthStore";
+import { apiRequestresWithoutBody } from "../../api/usersApiRequest";
+import { useState } from "react";
 
 function AllUsers() {
     const {users, getUsersData} = useAuthStore();
@@ -12,7 +16,7 @@ function AllUsers() {
   return (
     <div>
       <h2>AllUsers</h2>
-      {users && <Table dataTable={users} />}
+      {users.data && <Table dataTable={users.data} />}
     </div>
   );
 }
