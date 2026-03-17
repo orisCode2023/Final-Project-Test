@@ -18,6 +18,11 @@ function App() {
       <Route path='/deleteLauncher' element={<DeleteLauncher />}/>
       <Route path='/getById' element={<LauncherDetails />}/>
       <Route path='/searchLauncher' element={<SearchLauncher/>}/>
+      <Route path='/searchLauncher' element={<SearchLauncher/>}/>
+      <Route path='/searchLauncher' element={<SearchLauncher/>}/>
+      <Route path='/searchLauncher' element={<SearchLauncher/>}/>
+      <Route path='/searchLauncher' element={<SearchLauncher/>}/>
+      <Route path='/searchLauncher' element={<SearchLauncher/>}/>
     </Routes>
     </>
   )

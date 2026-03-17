@@ -12,7 +12,7 @@ async function loginController(req, res) {
     if (!user || user.password !== password) {
         return res.status(404).json({ message: "user not found" });
     } 
-    generateTokenAndSendCookies(user._id, res);
+    generateTokenAndSendCookies(user._id, user.user_type, res);
     return res
       .status(200)
       .json({ message: "login succrssfully", data: user });

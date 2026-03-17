@@ -6,5 +6,4 @@ const postLaunchersRouter = express.Router();
 
 postLaunchersRouter.post('/', protectIntelligenc, newLauncherController);
 
-
 export default postLaunchersRouter;

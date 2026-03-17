@@ -1,5 +1,6 @@
 async function logoutController(req, res){
     try {
+        
         return res.status(200).json({message:'logout succrssfully', data: launcher})
 
     } catch (error) {
