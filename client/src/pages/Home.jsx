@@ -20,6 +20,7 @@ function Home() {
       <Link to={"/getById"}>Get Launcher Deatails by Id</Link>
       <Link to={"/searchLauncher"}>Get Launcher Details by City / Rocket Type</Link>
       <Link to={"/deleteLauncher"}>Delete Launcher</Link>
+      <Link to={"/"}>Add Destroyed</Link>
       {launchers && <Table dataTable={launchers} />}
     </div>
   );
