@@ -1,8 +1,8 @@
 import express from 'express';
-import deleteUserController from '../../controllers/users/deleteUser.controller';
+import deleteUserController from '../../controllers/users/deleteUser.controller.js';
 
 const deleteUserRoute = express.Router();
 
-deleteUserRoute.put('/delete/:id', deleteUserController);
+deleteUserRoute.delete('/delete/:id', deleteUserController);
 
 export default deleteUserRoute

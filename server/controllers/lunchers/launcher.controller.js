@@ -1,4 +1,4 @@
-import Launcher from "../../models/launcher.model.js";
+import Launcher from "../../models/launcher.mode.js";
 
 async function launcherController(req, res){
     try {

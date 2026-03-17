@@ -10,11 +10,11 @@ const userSchema = new mongoose.Schema({
         require: true, 
     },
     email: {
-        type: Number,
+        type: String,
         require: true, 
     },
-    userType: {
-        type: Number,
+    user_type: {
+        type: String,
         require: true, 
     },
 }, {timestamps: true});
