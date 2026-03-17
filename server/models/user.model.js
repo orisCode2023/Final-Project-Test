@@ -15,7 +15,6 @@ const userSchema = new mongoose.Schema({
     },
     userType: {
         type: Number,
-        enum: ['intelligence', 'airForce', 'admin'],
         require: true, 
     },
 }, {timestamps: true});

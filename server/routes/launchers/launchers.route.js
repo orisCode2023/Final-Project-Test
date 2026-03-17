@@ -1,5 +1,5 @@
 import express from 'express';
-import launchersController from '../controllers/launchers.controller.js';
+import launchersController from '../../controllers/lunchers/launchers.controller.js';
 
 const launchersRouter = express.Router();
 
