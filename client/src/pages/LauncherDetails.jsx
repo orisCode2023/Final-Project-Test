@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { apiRequestresGet } from "../api/apiRequest";
 import Launcher from "../components/Launcher";
+import { apiRequestresWithoutBody } from "../api/usersApiRequest";
 
 function LauncherDetails() {
   
@@ -12,7 +12,7 @@ function LauncherDetails() {
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    setGetData(await apiRequestresGet(`/api/launchers/${getId}`, "GET"))
+    setGetData(await apiRequestresWithoutBody(`/api/launchers/${getId}`, "GET"))
     alert("Get launcher by id successfully");
   }
 

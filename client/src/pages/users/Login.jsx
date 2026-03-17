@@ -1,8 +1,9 @@
-import React from 'react'
 import { useState } from 'react';
 import useAuthStore from '../../store/useAuthStore';
+import {useNavigate } from 'react-router';
 
 function Login() {
+  const navigate = useNavigate();
   const {loginStore} = useAuthStore()
   const [loginData, setLoginData] = useState({
     username: "",
@@ -19,6 +20,8 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     await loginStore('/api/auth/login', 'POST', loginData);
+    alert('login successfully');
+    navigate('/home')
   }
   return (
     <div>

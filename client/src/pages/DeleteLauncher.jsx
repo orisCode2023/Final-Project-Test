@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { apiRequestresGet } from "../api/apiRequest";
 import Launcher from "../components/Launcher";
+import { apiRequestresWithoutBody } from "../api/usersApiRequest";
 
 function DeleteLauncher() {
   const [getId, setGetId] = useState("");
@@ -11,7 +11,7 @@ function DeleteLauncher() {
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    setGetData(await apiRequestresGet(`/api/launchers/${getId}`, "GET"))
+    setGetData(await apiRequestresWithoutBody(`/api/launchers/${getId}`, "GET"))
     alert("Delete launcher by id successfully");
   }
 

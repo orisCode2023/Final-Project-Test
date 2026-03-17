@@ -6,6 +6,8 @@ import AddLauncher from './pages/AddLauncher';
 import LauncherDetails from './pages/LauncherDetails';
 import DeleteLauncher from './pages/DeleteLauncher';
 import SearchLauncher from './pages/SearchLauncher';
+import Login from './pages/users/Login';
+import Register from './pages/users/Register';
 
 function App() {
 
@@ -13,12 +15,12 @@ function App() {
     <>
     <Navbar/>
     <Routes>
-      <Route path='/' element={<Home />}/>
+      <Route path='/home' element={<Home />}/>
       <Route path='/newLauncher' element={<AddLauncher />}/>
       <Route path='/deleteLauncher' element={<DeleteLauncher />}/>
       <Route path='/getById' element={<LauncherDetails />}/>
-      <Route path='/searchLauncher' element={<SearchLauncher/>}/>
-      <Route path='/searchLauncher' element={<SearchLauncher/>}/>
+      <Route path='/' element={<Login/>}/>
+      <Route path='/register' element={<Register/>}/>
       <Route path='/searchLauncher' element={<SearchLauncher/>}/>
       <Route path='/searchLauncher' element={<SearchLauncher/>}/>
       <Route path='/searchLauncher' element={<SearchLauncher/>}/>

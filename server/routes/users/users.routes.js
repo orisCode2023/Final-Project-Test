@@ -16,7 +16,7 @@ registerRoutes.put('/update', auth(['admin']), updateUserController);
 registerRoutes.post('/create', auth(['admin']), registerController);
 registerRoutes.delete('/delete/:id', auth(['admin']), deleteUserController);
 registerRoutes.get('/allUsers', auth(['admin']), allUsersController);
-authRoutes.post('/logout',auth([]), logoutController);
+authRoutes.post('/logout', logoutController);
 authRoutes.post('/login', loginController);
 authRoutes.get('/getUser', auth(['admin']),  getUserController);
 

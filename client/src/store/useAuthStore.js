@@ -1,16 +1,24 @@
-import { set } from 'mongoose';
 import {create} from 'zustand';
 import { persist } from 'zustand/middleware';
-import { apiRequestresWithBody } from '../api/usersApiRequest';
+import { apiRequestresWithBody, apiRequestresWithoutBody } from '../api/usersApiRequest';
 
 const useAuthStore = create()(
     persist(
-        set({
+        set => ({
             user: null,
-            loginStore: async (path, method, loginData) => {
+            users: [],
+            loginStore: async(path, method, loginData) => {
                 const userLoginData = await apiRequestresWithBody(path, method, loginData);
-                set({users: userLoginData});
+                set({user: userLoginData});
             },
+            getUsersData: async(path, method) => {
+                const usersData = await apiRequestresWithoutBody(path, method);
+                set({users: usersData});
+            },
+            logout: async(path, method) => {
+                await apiRequestresWithoutBody(path, method)
+                set({user: null})
+            }
         }),
         {name: 'authStore-storage'},
     ),

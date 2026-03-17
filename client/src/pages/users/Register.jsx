@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { apiRequestresWithBody } from "../../api/usersApiRequest";
 
 function Register() {
   const [registerData, setRegisterData] = useState({
@@ -16,8 +17,10 @@ function Register() {
     }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    await apiRequestresWithBody('/api/auth/register/create', 'POST', registerData);
+    alert('user created successfully')
   }
   return (
     <div>
