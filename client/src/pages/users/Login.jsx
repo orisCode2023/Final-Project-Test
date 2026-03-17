@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
+import useAuthStore from '../../store/useAuthStore';
 
 function Login() {
+  const {loginStore} = useAuthStore()
   const [loginData, setLoginData] = useState({
     username: "",
     password: ""
@@ -14,8 +16,9 @@ function Login() {
     }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    await loginStore('/api/auth/login', 'POST', loginData);
   }
   return (
     <div>

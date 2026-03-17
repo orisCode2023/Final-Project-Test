@@ -3,17 +3,17 @@ import {create} from 'zustand';
 import { persist } from 'zustand/middleware';
 import { apiRequestresWithBody } from '../api/usersApiRequest';
 
-const usersStore = create()(
+const useAuthStore = create()(
     persist(
         set({
-            users: null,
+            user: null,
             loginStore: async (path, method, loginData) => {
-                const user = await apiRequestresWithBody(path, method, loginData);
-                set({users: user});
+                const userLoginData = await apiRequestresWithBody(path, method, loginData);
+                set({users: userLoginData});
             },
         }),
-        {name: 'userLogin-storage'},
+        {name: 'authStore-storage'},
     ),
 )
 
-export default usersStore;
+export default useAuthStore;
