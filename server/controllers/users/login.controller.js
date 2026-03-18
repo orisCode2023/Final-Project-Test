@@ -1,7 +1,7 @@
 import User from "../../models/user.model.js";
 import generateTokenAndSendCookies from "../../services/generatToken.services.js";
 
-async function loginController(req, res) {
+async function login(req, res) {
   try {
     const { username, password } = req.body;
 
@@ -21,4 +21,4 @@ async function loginController(req, res) {
     return res.status(500).json({ message: "Internal server error " });
   }
 }
-export default loginController;
+export default login;

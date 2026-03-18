@@ -1,4 +1,4 @@
-async function logoutController(req, res){
+async function logout(req, res){
     try {
         res.status(200).clearCookie('jwt').json({message:'logout succrssfully'})
     } catch (error) {
@@ -6,4 +6,4 @@ async function logoutController(req, res){
         return res.status(500).json({message: 'Internal server error '});
     }
 }
-export default logoutController
+export default logout;

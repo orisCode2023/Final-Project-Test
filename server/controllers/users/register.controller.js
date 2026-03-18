@@ -1,6 +1,6 @@
 import User from "../../models/user.model.js";
 
-async function registerController(req, res) {
+async function register(req, res) {
   try {
     const { username, password, email, user_type } = req.body;
 
@@ -31,4 +31,4 @@ async function registerController(req, res) {
     return res.status(500).json({ message: "Internal server error " });
   }
 }
-export default registerController;
+export default register;

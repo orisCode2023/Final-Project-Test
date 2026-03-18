@@ -1,6 +1,6 @@
 import User from "../../models/user.model.js";
 
-async function deleteUserController(req, res) {
+async function deleteUser(req, res) {
   try {
     const { id } = req.params;
     if (!id) {
@@ -21,4 +21,4 @@ async function deleteUserController(req, res) {
     return res.status(500).json({ message: "Internal server error " });
   }
 }
-export default deleteUserController;
+export default deleteUser;

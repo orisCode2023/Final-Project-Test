@@ -1,6 +1,6 @@
 import Launcher from '../../models/launcher.model.js';
 
-async function removeLauncherController(req, res){
+async function removeLauncher(req, res){
     try {
         const {id} = req.params;
 
@@ -19,4 +19,4 @@ async function removeLauncherController(req, res){
         return res.status(500).json({message: 'Internal server error '});
     }
 }
-export default removeLauncherController
+export default removeLauncher

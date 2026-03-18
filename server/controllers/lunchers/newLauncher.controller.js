@@ -1,6 +1,6 @@
 import Launcher from "../../models/launcher.model.js";
 
-async function newLauncherController(req, res){
+async function newLauncher(req, res){
     try {
         const {name, rocketType, latitude, longitude, city} = req.body;
 
@@ -22,4 +22,4 @@ async function newLauncherController(req, res){
         return res.status(500).json({message: 'Internal server error '});
     }
 }
-export default newLauncherController
+export default newLauncher

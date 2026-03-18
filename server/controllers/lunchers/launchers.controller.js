@@ -1,6 +1,6 @@
 import Launcher from "../../models/launcher.model.js";
 
-async function launchersController(req, res) {
+async function getLaunchers(req, res) {
   try {
     const launchers = await Launcher.find({});
     if (!launchers) {
@@ -14,4 +14,4 @@ async function launchersController(req, res) {
     return res.status(500).json({ message: "Internal server error " });
   }
 }
-export default launchersController;
+export default getLaunchers;

@@ -1,9 +1,9 @@
-import User from "../../models/user.model.js";
+import Launcher from "../../models/launcher.model.js";
 
-async function updateUser(req, res) {
+async function editLauncher(req, res) {
   try {
     const { username, password, email, user_type } = req.body;
-    const user = await User.findOneAndUpdate({ user_type: user_type });
+    const user = await Launcher.findOneAndUpdate({ user_type: user_type });
     if (!user) {
       return res
         .status(400)
@@ -23,4 +23,4 @@ async function updateUser(req, res) {
     return res.status(500).json({ message: "Internal server error " });
   }
 }
-export default updateUser;
+export default editLauncher;

@@ -1,6 +1,6 @@
 import User from "../../models/user.model.js";
 
-async function allUsersController(req, res) {
+async function allUsers(req, res) {
   try {
     const users = await User.find({});
     if (!users) {
@@ -14,4 +14,4 @@ async function allUsersController(req, res) {
     return res.status(500).json({ message: "Internal server error " });
   }
 }
-export default allUsersController;
+export default allUsers;
