@@ -7,7 +7,7 @@ async function getOneLauncher(req, res){
             throw new Error("no id was passing ")
         }
         
-        const launcher = await Launcher.findOne({id : id});
+        const launcher = await Launcher.findOne({_id : id});
         if (!launcher ){
             return res.status(404).json({message: 'launcher with this id not found'});
         }
