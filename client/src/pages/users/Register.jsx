@@ -55,7 +55,7 @@ function Register() {
           value={registerData.user_type}
           onChange={handelChange}
         />
-        <button type="submit">Login</button>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );

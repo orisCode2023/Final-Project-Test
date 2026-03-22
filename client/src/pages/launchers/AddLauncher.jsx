@@ -1,8 +1,8 @@
 import { useState } from "react";
-import launchersStore from "../store/useLaucherStore";
+import useLaunchersStore from "../../store/useLaucherStore";
 
 function AddLauncher() {
-  const { addLauncher } = launchersStore();
+  const { addLauncher } = useLaunchersStore();
   const [newLauncher, setNewLauncher] = useState({
     name: "",
     rocketType: "",

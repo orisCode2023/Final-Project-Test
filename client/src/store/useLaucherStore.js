@@ -1,9 +1,8 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-// import { apiRequestresGet, apiRequestresPost } from "../api/apiRequest";
 import { apiRequestresWithBody, apiRequestresWithoutBody } from "../api/usersApiRequest";
 
-const launchersStore = create()(
+const useLaunchersStore = create()(
   persist(
     (set) => ({
       launchers: [],
@@ -18,4 +17,4 @@ const launchersStore = create()(
     { name: "launchers-storage" },
   ),
 )
-export default launchersStore;
+export default useLaunchersStore;

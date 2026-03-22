@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-// import { apiRequestresGet } from "../api/apiRequest";
-import Table from "../components/Table";
+import { useEffect } from "react";
+import Table from "../../components/Table";
 import { Link } from "react-router";
-import useLaunchers from "../store/useLaucherStore";
+import useLaunchersStore from '../../store/useLaucherStore'
 
 function Home() {
-  const {launchers, getLaunchers} = useLaunchers();
+  const {launchers, getLaunchers} = useLaunchersStore();
 
   useEffect(() => {
     async function getData() {

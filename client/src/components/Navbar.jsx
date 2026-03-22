@@ -6,8 +6,7 @@ function Navbar() {
   const {logout, user} = useAuthStore();
 
   function handleClickInfo(){
-    alert(`user name ${user.username} 
-      The user type is ${user.user_type}`)
+    alert(`user name ${user.username} \nThe user type is ${user.user_type}`)
   }
   async function handleClickLogout(){
     await logout('/api/auth/login', 'POST')
